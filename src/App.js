@@ -6,13 +6,14 @@ import ListTotal from './components/ListTotal';
 import './App.css';
 
 const App = () => {
-    const storage = JSON.parse(localStorage.getItem("todos")) || [];
+    const storage = JSON.parse(localStorage.getItem("todos")); // Ler item:
     const [input, setInput] = useState("");
     const [todos, setTodos] = useState(storage);
     const [editTodo, setEditTodo] = useState(null);
-    const [listTotal, setListTotal] = useState (storage.length);
+    const [listTotal, setListTotal] = useState(storage);
     useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("todos", JSON.stringify(todos)); // Criar item:
+
     }, [todos]);
     return (
         <div className='container'>
@@ -26,20 +27,10 @@ const App = () => {
                 <React.Fragment>
                     <TodosList todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} setInput={setInput} />
                 </React.Fragment>
-                <div className='list-total'>
-                    {/* <span>Total: {storage.length} itens</span> */}
-                    {console.log(storage)};
-                    <ListTotal listTotal={listTotal} setListTotal={setListTotal}/>
-                </div>
+                <React.Fragment>
+                    <ListTotal listTotal={listTotal} setListTotal={setListTotal} />
+                </React.Fragment>
             </div>
-            {/* <div>
-                <h2>Aqui</h2>
-                {storage.map((keyName, i) => (
-                    <li key={i}>
-                        <span>Name: {keyName}</span>
-                    </li>
-                ))}
-            </div> */}
         </div>
     );
 }

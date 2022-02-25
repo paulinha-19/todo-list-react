@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo, storage }) => {
+const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
+    const [disable, setDisable] = useState(false);
     const updateTodo = (title, id, completed) => {
         const newTodo = todos.map((todo) =>
             todo.id === id ? {
@@ -19,21 +20,8 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo, storage
             setInput("");
         }
     }, [setInput, editTodo]);
-    const checkItemExists = ({title}) => {   
-    }
-
-    const checkIfItemExists = ({input}) => {
-        const items = storage;
-        let itemExists = false
-        if (items) {
-          itemExists =  items.find(item => item.input === input)
-        }
-        return itemExists
-      }
-
     const onFormSubimit = (event) => {
         event.preventDefault();
-        checkIfItemExists({input});
         if (!editTodo) { //mudar depois a condição
             setTodos([...todos, {
                 id: uuidv4(),
@@ -45,15 +33,26 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo, storage
             updateTodo(input, editTodo.id, editTodo.completed);
         }
     }
-    const onInputChange = (event) => {
-        setInput(event.target.value);
+    const handleInputChange = (event) => {
+        let inputValue = event.target.value;
+        setInput(inputValue);
+        getInputValue(inputValue);
+    }
+
+    const getInputValue = (inputValue) => {
+        console.log("PARAMETRO", inputValue);
+        let some = todos.some(item => item.title === inputValue);
+        console.log("SOME", some);
+        if (some!=disable) {
+           setDisable(true);
+        }
+        return some
     }
     return (
         <form onSubmit={onFormSubimit}>
-            <input type='text' placeholder='Insira o nome da tarefa' className='task-input' value={input} onChange={onInputChange} required></input>
-            <button className='button-add' type='submit'>{editTodo ? 'Alterar' : 'Adicionar'}</button>
+            <input type='text' name='text' placeholder='Insira o nome da tarefa' className='task-input' value={input} onChange={handleInputChange} required></input>
+            <button type='submit' className='button-add' disabled={getInputValue} >{editTodo ? 'Alterar' : 'Adicionar'}</button>
         </form>
     );
 }
-
 export default Form

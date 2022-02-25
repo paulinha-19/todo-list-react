@@ -1,13 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 const ListTotal = ({listTotal, setListTotal}) => {
 
-  listTotal = ({listTotal}) => {
-    setListTotal();
+  const showArrayLength = () =>{
+    setListTotal(listTotal.length);
   }
   return (
-    <div>{}</div>
+    <div></div>
   )
 }
-
 export default ListTotal
