@@ -11,14 +11,6 @@ const TodosList = ({ todos, setTodos, setEditTodo, setInput }) => {
         setEditTodo(findTodo);
     }
     const handleCompleteClick = (todo) => {
-        // setTodos(
-        //     todos.map((item) => {
-        //     if (item.id === todo.id) {
-        //         return { ...item, completed: !item.completed }
-        //     }
-        //     return item;
-        // })
-        // );
         setTodos(
             todos.map((item) =>
               item.id === todo.id ? { ...item, completed: !item.completed } : item

@@ -18,7 +18,7 @@ form{
 .app-wrapper {
     background-color: #454849;
     min-width: 450px;
-    min-height: 650px;
+    min-height: 500px;
     padding: 2rem;
     margin: 2rem 0;
     /* box-sizing: border-box; */
@@ -117,4 +117,18 @@ button:focus {
     justify-content: center;
     font-size: 1.2rem;
     color: #fff;
+}
+.container-listTotal{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+.task-complete-footer{
+    color: #0c5010;
+}
+.task-open-footer{
+    color: #8b4c10;
+}
+.task-total-footer{
+    color: #2836b8;
 }

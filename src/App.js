@@ -4,13 +4,13 @@ import Form from './components/Form';
 import TodosList from './components/TodosList';
 import ListTotal from './components/ListTotal';
 import './App.css';
+import styled from 'styled-components'
 
 const App = () => {
     const storage = JSON.parse(localStorage.getItem("todos")); // Ler item:
     const [input, setInput] = useState("");
     const [todos, setTodos] = useState(storage);
     const [editTodo, setEditTodo] = useState(null);
-    const [listTotal, setListTotal] = useState(storage);
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos)); // Criar item:
 
@@ -28,10 +28,15 @@ const App = () => {
                     <TodosList todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} setInput={setInput} />
                 </React.Fragment>
                 <React.Fragment>
-                    <ListTotal listTotal={listTotal} setListTotal={setListTotal} />
+                    <ListTotal
+                        listTotal={todos.length}
+                        listDone={todos.filter((todo) => todo.completed).length}
+                    />
                 </React.Fragment>
             </div>
+
         </div>
+
     );
 }
 export default App;

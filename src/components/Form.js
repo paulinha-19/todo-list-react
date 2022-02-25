@@ -20,12 +20,12 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
             setInput("");
         }
     }, [setInput, editTodo]);
-    const onFormSubimit = (event) => {
+    const onFormSubimit = (event) => { //input === '' && input.trim()
         event.preventDefault();
-        if (!editTodo) { //mudar depois a condição
+        if (input.trim()) { //mudar depois a condição
             setTodos([...todos, {
                 id: uuidv4(),
-                title: input,
+                title: input.trim(),
                 completed: false
             }]);
             setInput("");
@@ -36,22 +36,20 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     const handleInputChange = (event) => {
         let inputValue = event.target.value;
         setInput(inputValue);
-        getInputValue(inputValue);
     }
-
-    const getInputValue = (inputValue) => {
-        console.log("PARAMETRO", inputValue);
-        let some = todos.some(item => item.title === inputValue);
+    const getInputValue = (input) => {
+        console.log("PARAMETRO", input);
+        let some = todos.some(item => item.title === input);
         console.log("SOME", some);
-        if (some!=disable) {
-           setDisable(true);
+        if (some != disable) {
+            setDisable(true);
         }
         return some
     }
     return (
         <form onSubmit={onFormSubimit}>
             <input type='text' name='text' placeholder='Insira o nome da tarefa' className='task-input' value={input} onChange={handleInputChange} required></input>
-            <button type='submit' className='button-add' disabled={getInputValue} >{editTodo ? 'Alterar' : 'Adicionar'}</button>
+            <button type='submit' className='button-add' disabled={getInputValue(input)}>{editTodo ? 'Alterar' : 'Adicionar'}</button>
         </form>
     );
 }
