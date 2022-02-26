@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import  {TagForm, Input} from './styles/styleForm'
+import  {TagForm} from './styles/styleForm'
 
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     const [disable, setDisable] = useState(false);
@@ -42,7 +42,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         console.log("PARAMETRO", input);
         let some = todos.some(item => item.title === input);
         console.log("SOME", some);
-        if (some != disable) {
+        if (some !== disable) {
             setDisable(true);
         }
         return some
