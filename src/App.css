@@ -12,9 +12,6 @@
     justify-content: center;
     align-items: center;
 }
-form{
-    margin-bottom: 4rem;
-}
 .app-wrapper {
     background-color: #454849;
     min-width: 450px;
@@ -23,8 +20,7 @@ form{
     margin: 2rem 0;
     /* box-sizing: border-box; */
     border-radius: 10px;
-    box-shadow: 3px 6px 40px #000;
-    
+    box-shadow: 3px 6px 40px #000; 
 }
 
 .header h1 {

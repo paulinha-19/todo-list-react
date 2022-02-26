@@ -4,7 +4,7 @@ import Form from './components/Form';
 import TodosList from './components/TodosList';
 import ListTotal from './components/ListTotal';
 import './App.css';
-import styled from 'styled-components'
+import { ClassNameContainer, ClassNameAppWrapper } from './components/styles/styleApp'
 
 const App = () => {
     const storage = JSON.parse(localStorage.getItem("todos")); // Ler item:
@@ -16,8 +16,8 @@ const App = () => {
 
     }, [todos]);
     return (
-        <div className='container'>
-            <div className='app-wrapper'>
+        <ClassNameContainer>
+            <ClassNameAppWrapper>
                 <React.Fragment>
                     <Header />
                 </React.Fragment>
@@ -33,9 +33,8 @@ const App = () => {
                         listDone={todos.filter((todo) => todo.completed).length}
                     />
                 </React.Fragment>
-            </div>
-
-        </div>
+            </ClassNameAppWrapper>
+        </ClassNameContainer>
 
     );
 }

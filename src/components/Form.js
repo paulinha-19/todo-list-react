@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import  {TagForm, Input} from './styles/styleForm'
 
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     const [disable, setDisable] = useState(false);
@@ -47,10 +48,10 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         return some
     }
     return (
-        <form onSubmit={onFormSubimit}>
+        <TagForm onSubmit={onFormSubimit}>
             <input type='text' name='text' placeholder='Insira o nome da tarefa' className='task-input' value={input} onChange={handleInputChange} required></input>
             <button type='submit' className='button-add' disabled={getInputValue(input)}>{editTodo ? 'Alterar' : 'Adicionar'}</button>
-        </form>
+        </TagForm>
     );
 }
 export default Form
