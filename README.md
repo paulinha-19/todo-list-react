@@ -1,7 +1,7 @@
 # Todo List
 
 ## Sobre o projeto
-Este recurso foi criado para colocar em prática os conhecimentos adquiridos no *módulo de React do Vai na Web*, programa que prepara pessoas para o mercado digital. O objetivo foi desenvolver uma Todo List com adição e remoção de tarefas utilizando React, porém, decidi deixar mais completo e incrementar as opções: alterar, concluir tarefa e feedback das tarefas finalizadas, em aberto e total. 
+Este recurso foi criado para colocar em prática os conhecimentos adquiridos no *módulo de React do Vai na Web*, programa que prepara pessoas para o mercado digital. O objetivo foi desenvolver uma Todo List com adição e remoção de tarefas utilizando React, porém, decidi incrementar o projeto com as opções: alterar, concluir tarefa e feedback das tarefas finalizadas, em aberto e total.
 
 ## Tecnologias e ferramentas utilizadas
 
