@@ -1,10 +1,12 @@
 import React from 'react'
+import StyledTodosList from './styles/styledTodosList'
 
 const TodosList = ({ todos, setTodos, setEditTodo, setInput }) => {
 
     const handleDeleteClick = ({ id }) => {
         setTodos(todos.filter((todo) => todo.id !== id));
-        setInput("");
+        setInput("");   //Logic to delete the item
+
     }
     const handleEditClick = ({ id }) => {
         const findTodo = todos.find((todo) => todo.id === id);
@@ -13,12 +15,12 @@ const TodosList = ({ todos, setTodos, setEditTodo, setInput }) => {
     const handleCompleteClick = (todo) => {
         setTodos(
             todos.map((item) =>
-              item.id === todo.id ? { ...item, completed: !item.completed } : item
+                item.id === todo.id ? { ...item, completed: !item.completed } : item
             )
-          );
+        );
     }
     return (
-        <div>
+        <StyledTodosList>
             {todos.map((todo) => (
                 <li className='list-item' key={todo.id}>
                     <input type="text" value={todo.title} className={`list ${todo.completed ? "complete" : ""}`} onChange={(event) => event.preventDefault()}
@@ -36,7 +38,7 @@ const TodosList = ({ todos, setTodos, setEditTodo, setInput }) => {
                     </div>
                 </li>
             ))}
-        </div>
+        </StyledTodosList>
     );
 }
 export default TodosList;

@@ -1,10 +1,11 @@
 import React from 'react';
+import StyledHeader from './styles/styledHeader'
 
 const Header = () => {
     return (
-        <div className='header'>
+        <StyledHeader>
             <h1>Lista de tarefas</h1>
-        </div>
+        </StyledHeader>
     )
 }
 

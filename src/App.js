@@ -4,7 +4,7 @@ import Form from './components/Form';
 import TodosList from './components/TodosList';
 import ListTotal from './components/ListTotal';
 import './App.css';
-import { ClassNameContainer, ClassNameAppWrapper } from './components/styles/styleApp'
+import { ClassNameContainer, ClassNameAppWrapper } from './components/styles/styledApp'
 
 const App = () => {
     const storage = JSON.parse(localStorage.getItem("todos")); // Ler item:
@@ -13,14 +13,11 @@ const App = () => {
     const [editTodo, setEditTodo] = useState(null);
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos)); // Criar item:
-
     }, [todos]);
     return (
         <ClassNameContainer>
             <ClassNameAppWrapper>
-                <React.Fragment>
                     <Header />
-                </React.Fragment>
                 <React.Fragment>
                     <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} editTodo={editTodo} setEditTodo={setEditTodo} />
                 </React.Fragment>
