@@ -11,10 +11,10 @@ export const TagForm = styled.form`
         input{
             max-width: 200px;
             padding: 10px;
-            font-size: 15px;
+            font-size: 1rem
         }
         .button-add{
-            font-size: 15px;
+            font-size: 1rem;
         }
   } 
 `

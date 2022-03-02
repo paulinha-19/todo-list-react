@@ -69,7 +69,7 @@
     width: 50%;
     background-color: #454849;
     border: none;
-    color: #fff;
+    color: #fcfcfc;
     font-size: 1rem;
     font-weight: bold;
     overflow-wrap: break-word;
@@ -84,13 +84,8 @@ button:focus {
     font-size: 1.2rem;
     color: #fff;
 }
-.container-listTotal{
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem 0;
-}
 .task-complete-footer,
 .task-open-footer,
 .task-total-footer{
-    color: #fff;
+    color: rgb(255, 255, 255);
 }

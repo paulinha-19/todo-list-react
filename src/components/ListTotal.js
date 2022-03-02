@@ -1,8 +1,9 @@
 import React from 'react'
+import StyledListTotal from './styles/styledListTotal'
 
 const ListTotal = (props) => {
   return (
-    <div className='container-listTotal'>
+    <StyledListTotal>
       <p className='task-total-footer'>
         Total: {props.listTotal} {props.listTotal <= 1 ? "tarefa" : "tarefas"}
       </p>
@@ -12,7 +13,7 @@ const ListTotal = (props) => {
       <p className='task-open-footer'>
         Em aberto: {props.listTotal - props.listDone} {props.listTotal - props.listDone <= 1 ? "tarefa" : "tarefas"}
       </p>
-    </div>
+    </StyledListTotal>
   )
 }
 export default ListTotal
