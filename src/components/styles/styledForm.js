@@ -7,14 +7,26 @@ export const TagForm = styled.form`
     input{
         background-color: #1C2122;
     }
-    @media(max-width: 550px) {
+    @media (min-width: 426px) and (max-width: 550px){
         input{
-            max-width: 200px;
+            max-width: 300px;
             padding: 10px;
-            font-size: 1rem
         }
-        .button-add{
+        .button-add,
+        input{
             font-size: 1rem;
         }
-  } 
+    }
+    @media (min-width: 320px) and (max-width: 426px){
+        input{
+            max-width: 180px;
+            padding: 10px;
+        }
+        .button-add,
+        input{
+            font-size: 0.7rem;
+        }
+    }
+
+  
 `

@@ -10,13 +10,16 @@ export const ClassNameContainer = styled.div`
 `
 export const ClassNameAppWrapper = styled.div`
     background-color: #454849;
-    /* min-width: 450px; */
-    min-height: 500px;
+    min-width: 450px;
+    /* min-height: 500px; */
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 10px;
     box-shadow: 3px 6px 40px #000;
-    @media (max-width: 550px){
-        width: 400px;
+    @media (min-width: 426px) and (max-width: 550px){
+        min-width: 400px;
+    }
+    @media (min-width: 320px) and (max-width: 426px){
+        min-width: 320px;
     }
 `
